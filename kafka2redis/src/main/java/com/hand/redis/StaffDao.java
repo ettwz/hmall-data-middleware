@@ -1,7 +1,7 @@
 package com.hand.redis;
 
-import com.hand.hmall.util.redis.Field.FieldType;
-import com.hand.hmall.util.redis.dao.BaseDao;
+import com.hand.util.redis.Field.FieldType;
+import com.hand.util.redis.dao.BaseDao;
 import org.springframework.stereotype.Service;
 
 /**

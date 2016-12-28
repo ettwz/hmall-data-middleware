@@ -46,7 +46,7 @@ public class kafkaProducer {
         Producer<String, String> producer = new KafkaProducer<String, String> (props);
 
         producer.send(new ProducerRecord<String, String>(topicName,message,message));
-        System.out.println("Message sent successfully");
+
         producer.close();
 
     }
