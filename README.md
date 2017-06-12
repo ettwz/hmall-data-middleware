@@ -3,7 +3,7 @@
     项目需要，管理员端使用Oracle数据库，客户端使用Redis数据库。所以采用Kafka担当数据中间件。
     然后因为项目需要会有两个Kafka服务器集群，两个Kafka集群中间使用mirrormaker进行同步。
     本教程会介绍kafka集群的使用与集群到数据库的接口使用。
-
+
 ## Chapter 0
 ### Kafka集群的搭建 
 
@@ -13,16 +13,16 @@
 
 #### Linux：
 1. 开启zookeeper服务器。
-	进入 kafka_2.10-0.10.1.0 目录，打开终端使用
-`bin/zookeeper-server-start.sh config/zookeeper.properties`
-指令开启服务器。
-如需要在本地开启多个zookeeper服务器请使用不同的配置文件。本地开启多服务器需修改端口、日志目录。参考zookeeper-1.properties文件。
+   进入 kafka_2.10-0.10.1.0 目录，打开终端使用
+   `bin/zookeeper-server-start.sh config/zookeeper.properties`
+   指令开启服务器。
+   如需要在本地开启多个zookeeper服务器请使用不同的配置文件。本地开启多服务器需修改端口、日志目录。参考zookeeper-1.properties文件。
 
 2. 开启kafka服务器。 一个kafka集群可以有多个kafka服务器，但是zookeeper服务器只能有一个。
-进入 kafka_2.10-0.10.1.0 目录，打开终端使用
-`bin/kafka-server-start.sh config/server.properties`
-指令开启服务器。
-如需要在本地开启多个kafka服务器请使用不同的配置文件。本地开启多服务器需修改listeners、broker.id、log.dirs。参考server-1.properties等文件。
+   进入 kafka_2.10-0.10.1.0 目录，打开终端使用
+   `bin/kafka-server-start.sh config/server.properties`
+   指令开启服务器。
+   如需要在本地开启多个kafka服务器请使用不同的配置文件。本地开启多服务器需修改listeners、broker.id、log.dirs。参考server-1.properties等文件。
 
 #### Windows：
 使用流程与Linux大致相同。指令使用方法不太相同，脚本请进入`kafka_2.10-0.10.1.0\bin\windows`进行使用。.sh脚本在windows不能使用，要使用.bat脚本。还需要把配置文件复制进`kafka_2.10-0.10.1.0\bin\windows`文件夹，因为windows执行脚本的配置文件不能带路径。例：`kafka-server-start.bat server.properties`
@@ -84,8 +84,8 @@ Redissendclient程序是一个Redis数据库操作的简单实例，在董凡的
 在网页中输入
 
 - <http://localhost:2229/add/>		进行数据添加
-- <http://localhost:2229/update/>		进行数据更新
-- <http://localhost:2229/delete/{id}>	进行数据删除
+  - <http://localhost:2229/update/>	进行数据更新
+  - <http://localhost:2229/delete/{id}>进行数据删除
 
 配置信息位于application.properties中
 
@@ -131,3 +131,10 @@ kafka2oracle程序是一个kafka消费者接收消息并解析成数据库操作
 <http://localhost:2231/add/>	进行端口监听
 
 oracle配置位于resources/application.properties中。kafka配置位于com/hand/config/config.java中。
+
+
+
+## Chapter 2.4
+
+###  上述服务在docker上的部署
+
